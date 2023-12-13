@@ -22,6 +22,10 @@ var volume_read = document.getElementById('read-volume');
 var nhietdofirebase = firebase.database().ref().child('FM_IoT/Volume');
 nhietdofirebase.on('value', snap=>volume_read.innerText = snap.val()); 
 
+var volume_control = document.getElementById('volume-title');
+var nhietdofirebase = firebase.database().ref().child('FM_IoT/Volume_control');
+nhietdofirebase.on('value', snap=>volume_control.innerText = snap.val()); 
+
 let btn0 = document.querySelector('#id-btn0');
 btn0.addEventListener('click', func0 )
 
@@ -67,12 +71,12 @@ function func3(){
 function func4(){
   volume = volume +1;
   if(volume >=15) volume = 15;
-  document.querySelector('#volume-title').innerText = volume;
+  //document.querySelector('#volume-title').innerText = volume;
   firebase.database().ref("/FM_IoT").update({"Volume_control":volume});
 }
 function func5(){
   volume = volume -1;
   if(volume <=0) volume = 0;
-  document.querySelector('#volume-title').innerText = volume;
+  //document.querySelector('#volume-title').innerText = volume;
   firebase.database().ref("/FM_IoT").update({"Volume_control":volume});
 }
