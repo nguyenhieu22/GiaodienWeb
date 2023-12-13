@@ -11,16 +11,16 @@ const firebaseConfig = {
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
 var freq_read = document.getElementById('value-frequency-read');
-var nhietdofirebase = firebase.database().ref().child('FM_IoT/Frequency');
-nhietdofirebase.on('value', snap=>freq_read.innerText = snap.val()); 
+var firebase_iot1 = firebase.database().ref().child('FM_IoT/Frequency');
+firebase_iot1.on('value', snap=>freq_read.innerText = snap.val()); 
 
 var freq_control = document.getElementById('value-frequency-control');
-var nhietdofirebase = firebase.database().ref().child('FM_IoT/Frequency_control');
-nhietdofirebase.on('value', snap=>freq_control.innerText = snap.val()); 
+var firebase_iot2 = firebase.database().ref().child('FM_IoT/Frequency_control');
+firebase_iot2.on('value', snap=>freq_control.innerText = snap.val()); 
 
 var volume_read = document.getElementById('read-volume');
-var nhietdofirebase = firebase.database().ref().child('FM_IoT/Volume');
-nhietdofirebase.on('value', snap=>volume_read.innerText = snap.val()); 
+var firebase_iot3 = firebase.database().ref().child('FM_IoT/Volume');
+firebase_iot3.on('value', snap=>volume_read.innerText = snap.val()); 
 
 let btn0 = document.querySelector('#id-btn0');
 btn0.addEventListener('click', func0 )
